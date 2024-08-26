@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="Diana.css" />
+  </head>
+  <body>
+    <header class="header justify-between">
+      <div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="diana"><h1><em>Diana</em></h1></div>
+      <div class="cart">
+        <div class="title"></div>
+        <div class="icon-cart">
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
+            />
+          </svg>
+        </div>
+        <span id="cartCount">0</span>
+      </div>
+      <div class="search">
+        <input type="text" id="searchInput" placeholder="Search for products..." />
+        <button id="searchButton">Search</button>
+        <!-- Dynamic Search Results List -->
+        <ul id="searchResults"></ul>
+      </div>
+    </header>
+
+    <!-- Product Items -->
+    <div class="row">
+      <div class="ListProduct">
+        <div class="item">
+          <a href="mug.html" target="_blank">
+            <img src="image1.jpeg" height="250px" alt="skull" />
+          </a>
+          <h2>Skull mug</h2>
+          <div class="price">$19.99</div>
+          <button class="add-to-cart" data-product-id="1">Add To Cart</button>
+        </div>
+      </div>
+      <div class="ListProduct">
+        <div class="item">
+          <a href="peaks.html" target="_blank">
+            <img src="image2.jpeg" height="250px" alt="peaks" />
+          </a>
+          <h2>Peaks hoodie</h2>
+          <div class="price">$25.57</div>
+          <button class="add-to-cart" data-product-id="2">Add To Cart</button>
+        </div>
+      </div>
+      <div class="ListProduct">
+        <div class="item">
+          <a href="phone-case.html" target="_blank">
+            <img src="image3.jpeg" height="250px" alt="phone case" />
+          </a>
+          <h2>Phone case</h2>
+          <div class="price">$17.99</div>
+          <button class="add-to-cart" data-product-id="3">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 In Memory of Diana. All rights reserved.</p>
+    </footer>
+
+    <script>
+
+      function addToCart(productId) {
+        const cartCountElement = document.getElementById('cartCount');
+        let currentCount = parseInt(cartCountElement.textContent);
+        cartCountElement.textContent = currentCount + 1;
+
+        console.log(`Product ${productId} added to cart.`);
+      }
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          const productId = this.getAttribute('data-product-id');
+          addToCart(productId);
+        });
+      });
+    </script>
+  </body>
+</html>
